@@ -1,0 +1,14 @@
+{
+    "name": "personal/mps",
+    "description": "Maisto produktu skaiciuokle",
+    "type": "project",
+    "require": {
+        "psr/log": "^1.1"
+    },
+    "authors": [
+        {
+            "name": "Evaldas1994",
+            "email": "evaldas.tuleikis@email.com"
+        }
+    ]
+}
