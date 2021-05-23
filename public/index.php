@@ -3,7 +3,7 @@
 include_once '../vendor/autoload.php';
 include_once '../config.php';
 
-use Controller\Index;
+use Core\Router;
 
-$controller = new Index();
-$controller->index();
+$router = new Router();
+$router->loadPage();
