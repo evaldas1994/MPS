@@ -28,11 +28,10 @@ class User extends Controller
         $user = new UserModel();
         $request = new Request();
         $notification = new Notification();
-
         $validation = new UserValidation();
 
 
-        if ($validation->isRegisterValid($request->getPost('register-email-input'))) {
+        if ($validation->isRegisterValid($request->getPost('register-email-input'), $request->getPost('register-password-input'), $request->getPost('register-password-input-2'))) {
             $user->setEmail($request->getPost('register-email-input'));
             $user->setPassword(md5($request->getPost('register-password-input')));
             $user->setRole(0);
