@@ -27,25 +27,32 @@ class User extends Controller
     {
         $user = new UserModel();
         $request = new Request();
-        $notification = new Notification();
         $validation = new UserValidation();
-
 
         if ($validation->isRegisterValid($request->getPost('register-email-input'), $request->getPost('register-password-input'), $request->getPost('register-password-input-2'))) {
             $user->setEmail($request->getPost('register-email-input'));
             $user->setPassword(md5($request->getPost('register-password-input')));
             $user->setRole(0);
             $user->save();
-        } else {
-            echo 'Įrašykite el. pašto adresą';
         }
 
         header("Location: " . BASE_URL . '/user/login_and_register'); /* Redirect browser */
     }
 
-    public function getUserObjectById($id)
+    public function login()
     {
+        $request = new Request();
         $user = new UserModel();
-        return $user->getUserObjectById($id);
+        $validation = new UserValidation();
+
+        if ($validation->isLoginValid($request->getPost('login-email-input'), md5($request->getPost('login-password-input')))) {
+            header("Location: " . BASE_URL . '/dishes'); /* Redirect browser */
+        }
     }
+
+//    public function getUserObjectById($id)
+//    {
+//        $user = new UserModel();
+//        return $user->getUserObjectById($id);
+//    }
 }

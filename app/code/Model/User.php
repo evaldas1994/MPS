@@ -127,5 +127,10 @@ class User
         $db = new Db();
         return $db->select('email')->from('user')->where('email', $email)->get();
     }
+    public function getUserByEmailAndPassword(string $email, string $password): ?array
+    {
+        $db = new Db();
+        return $db->select('id')->from('user')->where('email', $email)->whereAnd('password', $password)->getOne();
+    }
 
 }

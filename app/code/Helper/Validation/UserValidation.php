@@ -4,43 +4,11 @@
 namespace Helper\Validation;
 
 
+use Model\User;
 use Session\Notification;
 
 class UserValidation extends InputValidation
 {
-
-    /**
-     * @return string
-     */
-    public function getErrorTitle(): string
-    {
-        return $this->errorTitle;
-    }
-
-    /**
-     * @param string $errorTitle
-     */
-    public function setErrorTitle(string $errorTitle): void
-    {
-        $this->errorTitle = $errorTitle;
-    }
-
-    /**
-     * @return array
-     */
-    public function getErrorImtems(): array
-    {
-        return $this->errorImtems;
-    }
-
-    /**
-     * @param array $errorImtems
-     */
-    public function setErrorImtems(array $errorImtems): void
-    {
-        $this->errorImtems = $errorImtems;
-    }
-
     public function isRegisterValid(string $email, string $pass1, string $pass2): bool
     {
         if (
@@ -95,6 +63,22 @@ class UserValidation extends InputValidation
             $notification->setErrorItemsNotifications($errorItems);
 
             return false;
+        }
+    }
+
+    public function isLoginValid(string $email, string $password): bool
+    {
+        $userModel = new User();
+
+        if ($userModel->getUserByEmailAndPassword($email, $password) === NULL) {
+            $notification = new Notification();
+            $notification->setErrorTitleNotification('Prisijungimas nesėkmingas');
+            $notification->setErrorItemsNotifications(['Patikrinkite el paštą ir/arba slaptažodį']);
+
+            header("Location: " . BASE_URL . '/user/login_and_register'); /* Redirect browser */
+            return false;
+        } else {
+            return true;
         }
     }
 }

@@ -1,9 +1,9 @@
 <main>
     <section class="section-left">
         <h2 class="login-title">Prisijungimas</h2>
-        <form class="login-form" action="/user/login">
+        <form class="login-form" method="post" action="/user/login">
             <div class="login-email-block">
-                <input class="login-email-input" name="login-email-input" type="email" placeholder="El. Paštas">
+                <input class="login-email-input" name="login-email-input" type="text" placeholder="El. Paštas">
             </div>
 
             <div class="login-password-block">
