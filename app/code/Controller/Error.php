@@ -4,9 +4,11 @@
 namespace Controller;
 
 
-class Error
+use Core\Controller;
+
+class Error extends Controller
 {
     public function index() {
-        echo 'Error 404';
+        $this->render('error/index', []);
     }
 }

@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 <header>
     <div class="header-left-block">
-        <img class="header-logo-img" src="assets/images/logo.png" alt="evis-logo">
+        <a href="<?php BASE_URL ?>/index"><img class="header-logo-img" src="../assets/images/logo.png" alt="evis-logo"></a>
     </div>
 
     <div class="header-center-block">
@@ -29,8 +29,8 @@
     <div>
         <div class="header-right-block">
             <ul>
-                <li class="header-right-list-item"><a class="header-right-list-item-link" href="#">Prisijungimas</a></li>
-                <li class="header-right-list-item"><a class="header-right-list-item-link" href="#">Registracija</a></li>
+                <li class="header-right-list-item"><a class="header-right-list-item-link" href="<?php echo BASE_URL ?>/user/login_and_register">Prisijungimas / Registracija</a></li>
+<!--                <li class="header-right-list-item"><a class="header-right-list-item-link" href="--><?php //echo BASE_URL ?><!--/user/register">Registracija</a></li>-->
             </ul>
         </div>
     </div>

@@ -24,4 +24,13 @@ class Request
 
         return false;
     }
+
+    public function getPost($key = null)
+    {
+        if ($key !== null && isset($this->post[$key])) {
+            return $this->post[$key];
+        }
+
+        return null;
+    }
 }
